@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>TelloControl</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S3 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S4 { border-left: 0px none rgb(33, 33, 33); border-right: 0px none rgb(33, 33, 33); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px; line-height: 15.6px; min-height: 16px; white-space: pre; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>TelloControl</span></h1><div  class = 'S1'><span>The TelloControl class is a MATLAB implementation of a simple software controller for the Ryze Tello drone. It provides an interface for sending commands to the drone, retrieving its state information, and receiving video stream.</span></div><div  class = 'S1'><span>To use this class, you need to create a TelloControl object and initialize it using the initTello() method. You can then use the various methods provided by the class to command the drone, retrieve its state, and receive video stream.</span></div><div  class = 'S1'><span>The TelloControl class has the following properties:</span></div><ul  class = 'S2'><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloSDKPort</span><span style=' font-family: monospace;'>: an integer representing the port number for Tello's SDK.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloDroneStatePort</span><span style=' font-family: monospace;'>: an integer representing the port number for Tello's drone state.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloIP</span><span style=' font-family: monospace;'>: a string representing Tello's IP address.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>localhost</span><span style=' font-family: monospace;'>: a string representing the local host IP address.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloSDKClient</span><span style=' font-family: monospace;'>: a udpport object representing the UDP client for Tello's SDK.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloStateClient</span><span style=' font-family: monospace;'>: a udpport object representing the UDP client for Tello's drone state.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloCameraClient</span><span style=' font-family: monospace;'>: a udpport object representing the UDP client for Tello's camera.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloCameraPort</span><span style=' font-family: monospace;'>: an integer representing the port number for Tello's camera.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>telloState</span><span style=' font-family: monospace;'>: a structure representing the state of Tello's drone</span></li></ul><div  class = 'S1'><span>The TelloControl class provides the following methods:</span></div><ul  class = 'S2'><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>Constructor</span><span style=' font-family: monospace;'>: initializes the TelloControl object.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>initTello</span><span style=' font-family: monospace;'>: initializes the drone SDK.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>cmdTello</span><span style=' font-family: monospace;'>: sends a command to the drone.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>getTelloState</span><span style=' font-family: monospace;'>: retrieves the drone's state information.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>motoron:</span><span style=' font-family: monospace;'> turns on the drone's motors.</span></li><li  class = 'S3'><span style=' font-weight: bold; text-decoration: underline; font-family: monospace;'>getCameraFeed</span><span style=' font-family: monospace;'>: receives the drone's video stream. </span><span style=' font-style: italic;'>(not yet implemented)</span></li></ul><div  class = 'S1'><span>Here's an example of how to use the TelloControl class:</span></div><div class = 'preformatted-matlab' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Create a TelloControl object</span></span></div><div  class = 'S4'><span style="white-space: pre"><span >tc = TelloControl();</span></span></div><div  class = 'S4'>&nbsp;</div><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Initialize the drone SDK</span></span></div><div  class = 'S4'><span style="white-space: pre"><span >tc.initTello();</span></span></div><div  class = 'S4'>&nbsp;</div><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Turn on the drone's motors</span></span></div><div  class = 'S4'><span style="white-space: pre"><span >tc.motoron();</span></span></div><div  class = 'S4'>&nbsp;</div><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Take off</span></span></div><div  class = 'S4'><span style="white-space: pre"><span >tc.cmdTello(</span><span style="color: rgb(167, 9, 245);">'takeoff'</span><span >);</span></span></div><div  class = 'S4'>&nbsp;</div><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Move forward</span></span></div><div  class = 'S4'><span style="white-space: pre"><span >tc.cmdTello(</span><span style="color: rgb(167, 9, 245);">'forward 50'</span><span >);</span></span></div><div  class = 'S4'>&nbsp;</div><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Turn right</span></span></div><div  class = 'S4'><span style="white-space: pre"><span >tc.cmdTello(</span><span style="color: rgb(167, 9, 245);">'right 50'</span><span >);</span></span></div><div  class = 'S4'>&nbsp;</div><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Land</span></span></div><div  class = 'S4'><span style="white-space: pre"><span >tc.cmdTello(</span><span style="color: rgb(167, 9, 245);">'land'</span><span >);</span></span></div><div  class = 'S4'>&nbsp;</div></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span>Note that the </span><span style=' font-family: monospace;'>getCameraFeed()</span><span> method is not currently implemented in the code.</span></div><div  class = 'S1'><span>In conclusion, the TelloControl class provides a convenient way to control the Ryze Tello drone using MATLAB. It is recommended to use this code as a starting point for developing more complex software controllers for the drone.</span></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% TelloControl
+% The TelloControl class is a MATLAB implementation of a simple software controller 
+% for the Ryze Tello drone. It provides an interface for sending commands to the 
+% drone, retrieving its state information, and receiving video stream.
+% 
+% To use this class, you need to create a TelloControl object and initialize 
+% it using the initTello() method. You can then use the various methods provided 
+% by the class to command the drone, retrieve its state, and receive video stream.
+% 
+% The TelloControl class has the following properties:
+%% 
+% * |*telloSDKPort*: an integer representing the port number for Tello's SDK.|
+% * |*telloDroneStatePort*: an integer representing the port number for Tello's 
+% drone state.|
+% * |*telloIP*: a string representing Tello's IP address.|
+% * |*localhost*: a string representing the local host IP address.|
+% * |*telloSDKClient*: a udpport object representing the UDP client for Tello's 
+% SDK.|
+% * |*telloStateClient*: a udpport object representing the UDP client for Tello's 
+% drone state.|
+% * |*telloCameraClient*: a udpport object representing the UDP client for Tello's 
+% camera.|
+% * |*telloCameraPort*: an integer representing the port number for Tello's 
+% camera.|
+% * |*telloState*: a structure representing the state of Tello's drone|
+%% 
+% The TelloControl class provides the following methods:
+%% 
+% * |*Constructor*: initializes the TelloControl object.|
+% * |*initTello*: initializes the drone SDK.|
+% * |*cmdTello*: sends a command to the drone.|
+% * |*getTelloState*: retrieves the drone's state information.|
+% * |*motoron:* turns on the drone's motors.|
+% * |*getCameraFeed*: receives the drone's video stream.| _(not yet implemented)_
+%% 
+% Here's an example of how to use the TelloControl class:
+%%
+% 
+%   % Create a TelloControl object
+%   tc = TelloControl();
+%   
+%   % Initialize the drone SDK
+%   tc.initTello();
+%   
+%   % Turn on the drone's motors
+%   tc.motoron();
+%   
+%   % Take off
+%   tc.cmdTello('takeoff');
+%   
+%   % Move forward
+%   tc.cmdTello('forward 50');
+%   
+%   % Turn right
+%   tc.cmdTello('right 50');
+%   
+%   % Land
+%   tc.cmdTello('land');
+%   
+%
+%% 
+% 
+% 
+% Note that the |getCameraFeed()| method is not currently implemented in the 
+% code.
+% 
+% In conclusion, the TelloControl class provides a convenient way to control 
+% the Ryze Tello drone using MATLAB. It is recommended to use this code as a starting 
+% point for developing more complex software controllers for the drone.
+##### SOURCE END #####
+-->
+</div></body></html>
